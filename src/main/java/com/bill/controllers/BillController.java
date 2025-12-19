@@ -18,7 +18,7 @@ import com.bill.services.PdfService;
 
 @RestController
 @RequestMapping("bill/")
-@CrossOrigin("http://localhost:5174")
+@CrossOrigin("http://localhost:5173")
 public class BillController {
 
     @Autowired
