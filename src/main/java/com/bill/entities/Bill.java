@@ -13,6 +13,7 @@ import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "bill")
 public class Bill {
 
     @Id
