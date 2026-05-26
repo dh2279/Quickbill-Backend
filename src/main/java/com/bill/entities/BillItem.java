@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "billitem")
 public class BillItem {
 
     @Id
