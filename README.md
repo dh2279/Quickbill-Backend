@@ -1,3 +1,19 @@
-QuickBill is a full-stack billing and invoice management system built using Spring Boot and React, designed for cafes and small businesses to generate bills and downloadable PDF invoices.QuickBill is a full-stack web application developed using Spring Boot (Java) for the backend and React with Tailwind CSS for the frontend. The system allows users to select products, manage quantities, calculate total bills dynamically, and generate PDF invoices.
+# QuickBill Backend:
+Spring Boot REST API for QuickBill Cafe Billing System.
 
-QuickBill Frontend :- https://github.com/dh2279/Quickbill-Frontend
+## Backend URL:
+https://quickbill-backend-lqnm.onrender.com
+
+## Swagger:
+https://quickbill-backend-lqnm.onrender.com/swagger-ui/index.html
+
+## Tech Stack
+- Spring Boot
+- Spring Data JPA
+- PostgreSQL
+- OpenPDF
+
+## APIs
+- GET /products/all
+- POST /bill/create
+- GET /bill/invoice/{id}
