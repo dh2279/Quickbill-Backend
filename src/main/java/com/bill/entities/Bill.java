@@ -8,8 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
@@ -27,10 +28,13 @@ public class Bill {
     // Final amount
     private double totalAmount;
 
+    // Name of the cashier who created this bill
+    private String cashierName;
+
     // One bill has many items
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bill_id")
     private List<BillItem> items;
-
     // getters & setters
 }
 

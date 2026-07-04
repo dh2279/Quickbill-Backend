@@ -19,31 +19,37 @@ import com.bill.services.PdfService;
 @RestController
 @RequestMapping("bill/")
 @CrossOrigin("http://localhost:5173")
-public class BillController {
+public class BillController
+{
 
-    @Autowired
-    private BillService billService;
+	@Autowired
+	private BillService billService;
 
-    @Autowired
-    private PdfService pdfService;
+	@Autowired
+	private PdfService pdfService;
 
-    // Create bill
-    @PostMapping("create")
-    public Bill createBill(@RequestBody Bill bill) {
-        return billService.saveBill(bill);
-    }
+	// Create bill
+	@PostMapping("create")
+	public Bill createBill(@RequestBody Bill bill)
+	{
+		return billService.saveBill(bill);
+	}
 
-    // Download PDF Invoice
-    @GetMapping("invoice/{id}")
-    public ResponseEntity<byte[]> downloadInvoice(@PathVariable Long id) throws Exception {
+	// Download PDF Invoice
+	@GetMapping("invoice/{id}")
+	public ResponseEntity<byte[]> downloadInvoice(@PathVariable Long id) throws Exception
+	{
 
-        Bill bill = billService.getBillById(id);
-        byte[] pdf = pdfService.generateInvoice(bill);
+		Bill bill = billService.getBillById(id);
+		byte[] pdf = pdfService.generateInvoice(bill);
 
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=invoice.pdf")
-                .contentType(MediaType.APPLICATION_PDF)
-                .body(pdf);
-    }
+		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=invoice.pdf")
+				.contentType(MediaType.APPLICATION_PDF).body(pdf);
+	}
+	
+	@GetMapping("all")
+	public ResponseEntity<?> getAllBills()
+	{
+	    return ResponseEntity.ok(billService.getAllBills());
+	}
 }
-
